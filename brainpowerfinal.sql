@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -59,8 +59,6 @@ ALTER TABLE "user" OWNER TO postgres;
 -- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "user" (dia, mes, ano, cd_user) FROM stdin;
-\.
 
 
 --

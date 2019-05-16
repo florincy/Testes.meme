@@ -8,6 +8,10 @@ package br.iff.edu.teste.back;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -16,7 +20,21 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "user")
-public class user implements Serializable {
+public class User implements Serializable {
+
+    /**
+     * @return the data
+     */
+    public String getData() {
+        return data;
+    }
+
+    /**
+     * @param data the data to set
+     */
+    public void setData(String data) {
+        this.data = data;
+    }
 
     /**
      * @return the cdUser
@@ -73,11 +91,17 @@ public class user implements Serializable {
     public void setAno(Integer ano) {
         this.ano = ano;
     }
-    @Column(name="dia")
+    @Column (name = "data")
+    private String data;
+    @Column(name = "dia")
     private Integer dia;
-    @Column(name="mes")
+    @Column(name = "mes")
     private Integer mes;
-    @Column(name="ano")
+    @Column(name = "ano")
     private Integer ano;
+    @Id
+    @Column(name = "cd_user")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_user")
+    @SequenceGenerator(name = "sequence_user", sequenceName = "sq_cd_user")
     private Integer cdUser;
 }
