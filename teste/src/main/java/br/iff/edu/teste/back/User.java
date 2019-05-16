@@ -23,6 +23,34 @@ import javax.persistence.Table;
 public class User implements Serializable {
 
     /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    /**
      * @return the data
      */
     public String getData() {
@@ -91,6 +119,10 @@ public class User implements Serializable {
     public void setAno(Integer ano) {
         this.ano = ano;
     }
+    @Column(name="nome")
+    private String nome;
+    @Column (name="senha")
+    private String senha;
     @Column (name = "data")
     private String data;
     @Column(name = "dia")
@@ -104,4 +136,5 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_user")
     @SequenceGenerator(name = "sequence_user", sequenceName = "sq_cd_user")
     private Integer cdUser;
+    
 }

@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.iff.edu.teste.front;
+package br.iff.edu.teste.back;
 
-import br.iff.edu.teste.back.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author florincy
  */
-@WebServlet(name = "ServletUser", urlPatterns = {"/ServletUser"})
-public class ServletUser extends HttpServlet {
+public class ServletCadastro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +35,10 @@ public class ServletUser extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletUser</title>");            
+            out.println("<title>Servlet ServletCadastro</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletUser at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServletCadastro at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,10 +72,10 @@ public class ServletUser extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         User usuario = new User();
-        usuario.setData(request.getParameter("bday"));
-        
+        usuario.setNome(request.getParameter("name"));
+        usuario.setSenha(request.getParameter("key"));
+       
     }
-    
 
     /**
      * Returns a short description of the servlet.
